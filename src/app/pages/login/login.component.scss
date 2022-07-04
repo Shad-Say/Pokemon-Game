@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  height: 100vh;
+
+  .Display-image {
+    background: url(../../../assets/images/WallpaperDog-10767858.jpg);
+    flex: 4;
+  }
+  .login-window {
+    flex: 1;
+    background-color: aqua;
+    .tag-line {
+      color: white;
+      text-align: center;
+      font-family: "Courier New", Courier, monospace;
+    }
+  }
+}
