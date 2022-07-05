@@ -9,9 +9,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { InputComponent } from './shared/input/input.component';
 import { ButtonComponent } from './shared/button/button.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ButtonStylerDirective } from './button-styler.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
     HomeComponent,
     InputComponent,
     ButtonComponent,
+    ButtonStylerDirective,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,10 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     MatButtonModule,
     MatInputModule,
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

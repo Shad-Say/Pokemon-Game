@@ -1,6 +1,9 @@
 <div class="input-card">
   <label for="{{ id }} ">{{ id }}: </label>
   <input
+    [ngModel]="value"
+    (ngModelChange)="onChange($event)"
+    (blur)="(onTouched)"
     matInput
     type="{{ type }}"
     id="{{ id }}"
