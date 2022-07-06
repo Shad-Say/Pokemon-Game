@@ -1,3 +1,8 @@
-<button appButtonStyler mat-raised-button disabled="{{ enableButton }}">
+<button
+  type="submit"
+  appButtonStyler
+  mat-raised-button
+  [disabled]="enableButton"
+>
   <ng-content selector="button-name"></ng-content>
 </button>

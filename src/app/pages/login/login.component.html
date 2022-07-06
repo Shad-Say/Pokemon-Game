@@ -13,6 +13,7 @@
           [type]="'email'"
         ></app-input>
         <p
+          class="validation-errors"
           *ngIf="
             loginForm.controls['email'].hasError('required') &&
             loginForm.controls['email'].dirty
@@ -20,7 +21,10 @@
         >
           This field is Required
         </p>
-        <p *ngIf="loginForm.controls['email'].hasError('email')">
+        <p
+          class="validation-errors"
+          *ngIf="loginForm.controls['email'].hasError('email')"
+        >
           Please enter correct email
         </p>
         <app-input
@@ -31,6 +35,7 @@
         >
         </app-input>
         <p
+          class="validation-errors"
           *ngIf="
             loginForm.controls['password'].hasError('required') &&
             loginForm.controls['password'].dirty
@@ -38,7 +43,10 @@
         >
           This field is Required
         </p>
-        <p *ngIf="loginForm.controls['password'].hasError('minlength')">
+        <p
+          class="validation-errors"
+          *ngIf="loginForm.controls['password'].hasError('minlength')"
+        >
           Password should be of minimum 4 characters
         </p>
         <app-button
