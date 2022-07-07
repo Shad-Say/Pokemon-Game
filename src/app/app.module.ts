@@ -39,6 +39,7 @@ import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.inte
     MatToolbarModule,
     HttpClientModule,
   ],
+  exports: [ButtonComponent, InputComponent, ButtonStylerDirective],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,0 +1,12 @@
+<div class="input-card">
+  <label for="{{ id }} ">{{ id }}: </label>
+  <input
+    [ngModel]="value"
+    (ngModelChange)="OnChange($event)"
+    (blur)="(OnTouched)"
+    matInput
+    [type]="type"
+    id="{{ id }}"
+    placeholder="{{ placeholder }}"
+  />
+</div>
