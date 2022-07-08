@@ -6,4 +6,12 @@
   <app-button class="button">Add</app-button>
 </section>
 
-<table></table>
+<mat-table [dataSource]="dataSource" class="table-properties">
+  <!-- Column1 -->
+  <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+  <ng-container matColumnDef="{{ tableColumns[0] }}">
+    <mat-header-cell *matHeaderCellDef>No.</mat-header-cell>
+    <mat-cell *matCellDef="let element">element.name</mat-cell>
+  </ng-container>
+</mat-table>
