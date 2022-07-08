@@ -7,6 +7,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Token } from '@angular/compiler';
 
 @Injectable()
 export class AuthInterceptorInterceptor implements HttpInterceptor {
@@ -21,7 +22,7 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
     const requestClone = request.clone({
       setHeaders: {
         'Content-Type': 'application/json',
-        Authorization: 'SUPERRAREPOKEMON',
+        'Authorization'  : window.localStorage.getItem('token')!,  
       },
     });
     return next.handle(requestClone);

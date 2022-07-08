@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.AuthService.getUsers(this.loginForm.value).subscribe((response) => {
       localStorage.setItem(
         'token',
-        JSON.stringify(Object(response).data.token)
+        (Object(response).data.token)
       );
       console.log(response);
     });
