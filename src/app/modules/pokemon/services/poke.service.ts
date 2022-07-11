@@ -25,4 +25,8 @@ export class PokeService {
   deletePokemon = (id: string): Observable<any> => {
     return this.http.delete(`${this.baseUrl}/pokemon/${id}`);
   };
+
+  getToken() {
+    return window.localStorage.getItem('token');
+  }
 }

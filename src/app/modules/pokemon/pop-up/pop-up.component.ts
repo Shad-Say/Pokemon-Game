@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pop-up',
@@ -15,8 +15,14 @@ export class PopUpComponent implements OnInit {
     type: ['', Validators.required],
   });
 
-  UpdateValues = (): void => {
-    console.log(this.PokeForm);
+  @Output() updateValues = new EventEmitter();
+
+  UpdateValues = (form: any): void => {
+    
+    this.updateValues.emit(form.value);
+
+    console.log(form.value)
+
   };
 
   ngOnInit(): void {}

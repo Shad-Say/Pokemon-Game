@@ -1,6 +1,6 @@
 <section class="pop-up">
   <h2 class="title">Add a new Pokemon</h2>
-  <form [formGroup]="PokeForm" (ngSubmit)="UpdateValues()">
+  <form [formGroup]="PokeForm" (ngSubmit)="UpdateValues(PokeForm)">
     <app-input
       class="inputs"
       formControlName="name"
@@ -21,7 +21,7 @@
     <app-input
       class="inputs"
       formControlName="level"
-      type="text"
+      type="number"
       id="Level"
       placeholder="Level of Pokemon"
     >
@@ -35,13 +35,15 @@
     >
       This field is Required
     </p>
-    <div class="inputs"><label for="type">Type of Pokemon: </label>
-    <select name="type" id="type" formControlName="type" >
-      <option value="Water">Water</option>
-      <option value="Fire">Fire</option>
-      <option value="Leaf">Leaf</option>
-      <option value="Steel">Steel</option>
-    </select></div>
+    <div class="inputs">
+      <label for="type">Type of Pokemon: </label>
+      <select name="type" id="type" formControlName="type">
+        <option value="1">Water</option>
+        <option value="2">Fire</option>
+        <option value="3">Leaf</option>
+        <option value="4">Steel</option>
+      </select>
+    </div>
 
     <p
       class="validation-errors"
@@ -50,7 +52,10 @@
         PokeForm.controls['type'].dirty
       "
     ></p>
-    <app-button [enableButton]="PokeForm.status === 'INVALID'" class="button-positioning"
+    <app-button
+      type="submit"
+      [enableButton]="PokeForm.status === 'INVALID'"
+      class="button-positioning"
       >Submit</app-button
     >
   </form>

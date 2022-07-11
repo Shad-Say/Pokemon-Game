@@ -3,14 +3,15 @@
   <app-button>Log Out</app-button>
 </header>
 <section class="add-button-section">
-  <app-pop-up *ngIf="enablePopup" class="popup-positioning"></app-pop-up>
-  <input
-    type="button"
-    *ngIf="!enablePopup"
-    class="button"
-    (click)="popupEnabler()"
-    value="Add"
-  />
+  <app-pop-up
+    *ngIf="enablePopup"
+    class="popup-positioning"
+    (updateValues)="UpdatePokemons($event)"
+  >
+  </app-pop-up>
+  <app-button (click)="onAdding()" *ngIf="!enablePopup" class="button">
+    Add Pokemon
+  </app-button>
 </section>
 
 <table mat-table [dataSource]="pokemonData" class="table-properties">
@@ -21,22 +22,35 @@
   <ng-container matColumnDef="Level">
     <th mat-header-cell *matHeaderCellDef>Level</th>
     <td mat-cell *matCellDef="let element">{{ element.level }}</td>
-     </ng-container>
+  </ng-container>
   <ng-container matColumnDef="Type">
     <th mat-header-cell *matHeaderCellDef>Type</th>
-    <td mat-cell *matCellDef="let element">{{ element.type.name }}</td> </ng-container>
+    <td mat-cell *matCellDef="let element">{{ element.type.name }}</td>
+  </ng-container>
   <ng-container matColumnDef="Created">
     <th mat-header-cell *matHeaderCellDef>Created</th>
-    <td mat-cell *matCellDef="let element">{{ element.createdOn | getTime }}</td> </ng-container> 
+    <td mat-cell *matCellDef="let element">
+      {{ element.createdOn | getTime }}
+    </td>
+  </ng-container>
   <ng-container matColumnDef="Updated">
     <th mat-header-cell *matHeaderCellDef>Updated</th>
-    <td mat-cell *matCellDef="let element">{{ element.updatedOn | getTime }}</td> </ng-container>
+    <td mat-cell *matCellDef="let element">
+      {{ element.updatedOn | getTime }}
+    </td>
+  </ng-container>
   <ng-container matColumnDef="Edit">
     <th mat-header-cell *matHeaderCellDef>Edit</th>
-    <td mat-cell *matCellDef="let element">{{ element.name }}</td> </ng-container>
+    <td mat-cell *matCellDef="let element"><app-button (click)="updatePokemonById(element.id)">Edit</app-button></td>
+  </ng-container>
   <ng-container matColumnDef="Delete">
     <th mat-header-cell *matHeaderCellDef>Delete</th>
-    <td mat-cell *matCellDef="let element">{{ element.name }}</td> </ng-container>
-    <tr mat-header-row *matHeaderRowDef="tableColumns" class="Column-Headers"></tr>
-  <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+    <td mat-cell *matCellDef="let element"><app-button (click)="deletepokemon(element.id)">Delete</app-button></td>
+  </ng-container>
+  <tr
+    mat-header-row             
+    *matHeaderRowDef="tableColumns"
+    class="Column-Headers"
+  ></tr>
+  <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
 </table>

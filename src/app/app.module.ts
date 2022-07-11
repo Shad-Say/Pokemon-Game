@@ -5,10 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './pages/login/login.component';
-import { HomeComponent } from './pages/home/home.component';
-import { InputComponent } from './shared/input/input.component';
-import { ButtonComponent } from './shared/button/button.component';
+
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,10 +18,6 @@ import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.inte
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent,
-    InputComponent,
-    ButtonComponent,
     ButtonStylerDirective,
   ],
   imports: [
@@ -39,7 +32,6 @@ import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.inte
     MatToolbarModule,
     HttpClientModule,
   ],
-  exports: [ButtonComponent, InputComponent, ButtonStylerDirective],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

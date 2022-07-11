@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { ButtonStylerDirective } from './directives/button-styler.directive';
 import { GetTimePipe } from './CustomPipes/pipe';
 
-
 @NgModule({
   declarations: [
     InputComponent,
