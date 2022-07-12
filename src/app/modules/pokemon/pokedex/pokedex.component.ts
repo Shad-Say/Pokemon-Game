@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokeService } from '../services/poke.service';
 import { IPokemonData } from '../models/interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokedex',
@@ -8,13 +9,19 @@ import { IPokemonData } from '../models/interface';
   styleUrls: ['./pokedex.component.scss'],
 })
 export class PokedexComponent implements OnInit {
-  constructor(private pokeService: PokeService) {}
+  constructor(private pokeService: PokeService, private router: Router) {}
 
   enablePopup: boolean = false;
 
   dataTOEdit!: any;
 
   pokemonData!: any;
+
+  dataToUpdate = {
+    name: '',
+    level: 1,
+    type: {},
+  };
 
   tableColumns: string[] = [
     'Name',
@@ -25,6 +32,11 @@ export class PokedexComponent implements OnInit {
     'Edit',
     'Delete',
   ];
+
+  logOutUser() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('');
+  }
 
   getPokemonData() {
     this.pokeService.getPokemons().subscribe((data) => {
@@ -64,16 +76,15 @@ export class PokedexComponent implements OnInit {
   }
 
   updatePokemonById(id: string) {
-    for (let entry of this.pokemonData){
-      if (entry.id === id){
-        console.log(entry)
-        this.enablePopup=true
+    for (let entry of this.pokemonData) {
+      if (entry.id === id) {
+        console.log(entry);
+        this.enablePopup = true;
       }
-
-    } ;
-    this.enablePopup = true;
-
-
+    }
+    if (this.dataTOEdit) {
+      
+      
+    }
   }
-
 }

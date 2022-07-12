@@ -22,7 +22,7 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
     const requestClone = request.clone({
       setHeaders: {
         'Content-Type': 'application/json',
-        'Authorization'  : window.localStorage.getItem('token')!,  
+        'Authorization'  : window.localStorage.getItem('token') ||'',  
       },
     });
     return next.handle(requestClone);

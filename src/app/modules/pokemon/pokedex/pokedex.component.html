@@ -1,6 +1,6 @@
 <header class="header">
   <span>PokeAdmin</span>
-  <app-button>Log Out</app-button>
+  <app-button (click)="logOutUser()">Log Out</app-button>
 </header>
 <section class="add-button-section">
   <app-pop-up
@@ -52,5 +52,5 @@
     *matHeaderRowDef="tableColumns"
     class="Column-Headers"
   ></tr>
-  <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: tableColumns" ></tr>
 </table>

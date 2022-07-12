@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   });
 
   displayValues = () => {
-    console.log(this.loginForm.value);
     this.AuthService.getUsers(this.loginForm.value).subscribe((response) => {
       localStorage.setItem(
         'token',

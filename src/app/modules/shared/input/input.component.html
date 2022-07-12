@@ -1,6 +1,6 @@
 <div class="input-card">
-  <label for="{{ id }} ">{{ id }}: </label>
-  <input
+  <label class="input-label" for="{{ id }} ">{{ id }} </label>
+  <input class="input-text"
     [ngModel]="value"
     (ngModelChange)="OnChange($event)"
     (blur)="(OnTouched)"

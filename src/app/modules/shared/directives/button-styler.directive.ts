@@ -10,11 +10,11 @@ export class ButtonStylerDirective {
     this.color = 'yellow';
   }
   @HostListener('mouseleave') setMouseLeave() {
-    this.color = 'red';
+    this.color = 'green';
   }
 
   constructor() {}
   ngOnInit() {
-    this.color = 'red';
+    this.color = 'green';
   }
 }

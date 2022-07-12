@@ -1,9 +1,11 @@
 <div class="container">
   <div class="Display-image"></div>
   <div class="login-window">
-    <h1 class="tag-line">Gotta Catch 'Em All</h1>
-    <h1 class="tag-line">Panna Har Ek Ko</h1>
-    <mat-card>
+    <div class="div-tagLine">
+      <h1 class="tag-line">Paana Har Ek Ko</h1>
+    </div>
+    <mat-card class="card">
+      <h3 class="login-text">LOGIN</h3>
       <form [formGroup]="loginForm" (ngSubmit)="displayValues()">
         <app-input
           formControlName="email"
@@ -49,7 +51,7 @@
           Password should be of minimum 4 characters
         </p>
         <app-button
-          class="button-Positioning"
+          class="button-Positioning" 
           [enableButton]="loginForm.status === 'INVALID'"
         >
           <span class="button-name">Login</span>
